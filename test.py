@@ -1,6 +1,7 @@
 import os
 import shutil
 import subprocess
+import sys
 
 def main(GitHubDestinationPAT, ADOSourcePAT, AzureRepoName, ADOCloneURL, GitHubCloneURL):
     print(' - - - - - - - - - - - - - - - - - - - - - - - - -')
@@ -43,11 +44,8 @@ def main(GitHubDestinationPAT, ADOSourcePAT, AzureRepoName, ADOCloneURL, GitHubC
     print("Job completed")
 
 if __name__ == "__main__":
-    # Provide your parameter values here
-    main(
-        GitHubDestinationPAT="YourGitHubDestinationPAT",
-        ADOSourcePAT="YourADOSourcePAT",
-        AzureRepoName="YourAzureRepoName",
-        ADOCloneURL="YourADOConeURL",
-        GitHubCloneURL="YourGitHubCloneURL"
-    )
+    if len(sys.argv) != 6:
+        print("Usage: python script.py GitHubDestinationPAT ADOSourcePAT AzureRepoName ADOCloneURL GitHubCloneURL")
+        sys.exit(1)
+    GitHubDestinationPAT, ADOSourcePAT, AzureRepoName, ADOCloneURL, GitHubCloneURL = sys.argv[1:]
+    main(GitHubDestinationPAT, ADOSourcePAT, AzureRepoName, ADOCloneURL, GitHubCloneURL)
