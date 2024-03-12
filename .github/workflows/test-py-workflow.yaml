@@ -16,4 +16,4 @@ jobs:
       #     python-version: 3.9
       #     # File containing the Python version to use. Example: .python-version
       - run: |
-             python test.py ${{ secrets.GITHUBDESTINATIONPAT }} ${{ secrets.ADOSOURCEPAT }} $($object.AzureRepoName) $($object.ADOCloneURL)  $($object.GitHubCloneURL)
+             python test.py ${{ secrets.GITHUBDESTINATIONPAT }} ${{ secrets.ADOSOURCEPAT }} ${{ secrets.AzureRepoName }} ${{ secrets.ADOCloneURL }}  ${{ secrets.GitHubCloneURL }}
