@@ -23,7 +23,7 @@ jobs:
         uses: dusansimic/trigger-workflow-action@v0.1.0
         with:
           # The GitHub token used to trigger workflow
-          # github-token: # optional, default is ${{ github.token }}
+          github-token: ${{ secrets.GITHUBDESTINATIONPAT }} # optional, default is ${{ github.token }}
           # Workflow name to be triggered (the name of the file)
           name: Docker Image CI
           # Owner of the repository that contains the workflow (username or org. name)
