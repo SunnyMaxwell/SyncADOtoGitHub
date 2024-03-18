@@ -22,7 +22,7 @@ jobs:
               -H "Accept: application/vnd.github+json" \
               -H "Authorization: Bearer ${{ secrets.GITHUBDESTINATIONPAT }}" \
               -H "X-GitHub-Api-Version: 2022-11-28" \
-              https://api.github.com/repos/SunnyMaxwell/Tetris-Game-App/actions/workflow
+              https://api.github.com/repos/SunnyMaxwell/SyncADOtoGitHub/actions/workflow
       # - name: Trigger Workflow in Another Repository
       #   run: |
       #     # Set the required variables
