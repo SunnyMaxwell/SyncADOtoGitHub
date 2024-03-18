@@ -35,5 +35,5 @@ jobs:
           # Input parameters for the workflow (maximum number of inputs is 10)
           # inputs: # optional
           # Enable debug mode
-          # debug: # optional
+          debug: true # optional
                 
