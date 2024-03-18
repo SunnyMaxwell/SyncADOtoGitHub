@@ -17,23 +17,10 @@ jobs:
       #     # File containing the Python version to use. Example: .python-version
       - run: |
              python test.py ${{ secrets.GITHUBDESTINATIONPAT }} ${{ secrets.ADOSOURCEPAT }} ${{ secrets.AzureRepoName }} ${{ secrets.ADOCloneURL }}  ${{ secrets.GitHubCloneURL }}
-      - name: Trigger workflow
-        # You may pin to the exact commit or the version.
-        # uses: dusansimic/trigger-workflow-action@8b004e8247e9d2e7354366bd128160d7e78b47c8
-        uses: dusansimic/trigger-workflow-action@v0.1.0
-        with:
-          # The GitHub token used to trigger workflow
-          github-token: ${{ secrets.GITHUBDESTINATIONPAT }} # optional, default is ${{ github.token }}
-          # Workflow name to be triggered (the name of the file)
-          name: Docker Image CI
-          # Owner of the repository that contains the workflow (username or org. name)
-          owner: SunnyMaxwell
-          # Name of the repository
-          repo: Tetris-Game-App
-          # Reference name (branch or tag)
-          ref: main # optional, default is main
-          # Input parameters for the workflow (maximum number of inputs is 10)
-          # inputs: # optional
-          # Enable debug mode
-          debug: true # optional
+      - run: |
+             curl -L \
+              -H "Accept: application/vnd.github+json" \
+              -H "Authorization: Bearer ${{ secrets.GITHUBDESTINATIONPAT }}" \
+              -H "X-GitHub-Api-Version: 2022-11-28" \
+              https://api.github.com/repos/SunnyMaxwell/SyncADOtoGitHub/actions/workflows
                 
